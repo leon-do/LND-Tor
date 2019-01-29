@@ -81,6 +81,5 @@
 
   address is now `b53ztxul4vdcktgcgmvcvgjigi2vq2hy4ah6wg7frqpiiesdoxozx3ad.onion:9735`
 
-  fin
 
 ### Reference https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
