@@ -79,7 +79,9 @@
   }
   ```
 
-  address is now `b53ztxul4vdcktgcgmvcvgjigi2vq2hy4ah6wg7frqpiiesdoxozx3ad.onion:9735`
+  Connect `0346095e50ed1f8cf4dbda1fca442cd2ebccf082912e33c1c2e19868f1f56a190a@b53ztxul4vdcktgcgmvcvgjigi2vq2hy4ah6wg7frqpiiesdoxozx3ad.onion:9735`
+  
+  ![](https://i.imgur.com/we6yWP8.png)
 
 
 ### Reference https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
