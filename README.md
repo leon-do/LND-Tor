@@ -13,13 +13,13 @@
     Tor version 0.3.5.7.
 
 ### Create Tor config
-  - Linux: 
+  Linux: 
+    
+    $ vi /etc/tor/torrc
 
-        $ vi /etc/tor/torrc
-
-  - OSX: 
+  OSX: 
   
-        $ vi /usr/local/etc/tor/torrc
+    $ vi /usr/local/etc/tor/torrc
 
 ### Update `torrc` configuration file
   ```
