@@ -1,4 +1,4 @@
-### Install Tor: https://www.torproject.org/projects/torbrowser.html.en
+### [Install Tor](https://www.torproject.org/projects/torbrowser.html.en): 
   - Linux
     
         $ sudo apt install tor
