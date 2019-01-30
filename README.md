@@ -80,7 +80,7 @@
   }
   ```
 
-  Connect `0346095e50ed1f8cf4dbda1fca442cd2ebccf082912e33c1c2e19868f1f56a190a@b53ztxul4vdcktgcgmvcvgjigi2vq2hy4ah6wg7frqpiiesdoxozx3ad.onion:9735`
+  Connect `03026a1e2f3d19054347d007fd30ff748766fe7150ea61bd42252bb2054d868434@55slzhers64npc4ad47bjv6mx4m5nrho4au2bdbc4sadefwmj22wmyid.onion:9735`
   
   ![](https://i.imgur.com/we6yWP8.png)
 
