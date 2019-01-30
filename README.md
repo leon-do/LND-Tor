@@ -45,6 +45,7 @@
   or update your `lnd.conf`
 
   ```
+  listen=127.0.0.1
   #  Allows lnd to route all outbound and inbound connections through Tor.
   tor.active=true
   #  Tor can simply be done with either v2 or v3 onion services
