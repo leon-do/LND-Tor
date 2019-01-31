@@ -26,7 +26,7 @@
 
     $ echo -e "SOCKSPort 9050 \nLog notice stdout \nControlPort 9051 \nCookieAuthentication 1" >> /etc/tor/torrc
 
-  OSX: `/user/local/etc/tor/torrc` 
+  OSX: `/usr/local/etc/tor/torrc` 
 
     $ echo -e "SOCKSPort 9050 \nLog notice stdout \nControlPort 9051 \nCookieAuthentication 1" >> /user/local/etc/tor/torrc 
 
@@ -42,7 +42,7 @@
   - `listen` to localhost to prevent unintentional leaking of identifying information
 
   ```
-  $ ./lnd --tor.active --tor.v3 --listen=localhost --tor.streamisolation
+  $ lnd --tor.active --tor.v3 --listen=localhost --tor.streamisolation
   ```
 
   or update your `lnd.conf`
