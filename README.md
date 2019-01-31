@@ -28,7 +28,7 @@
 
   OSX: `/usr/local/etc/tor/torrc` 
 
-    $ echo -e "SOCKSPort 9050 \nLog notice stdout \nControlPort 9051 \nCookieAuthentication 1" >> /user/local/etc/tor/torrc 
+    $ echo -e "SOCKSPort 9050 \nLog notice stdout \nControlPort 9051 \nCookieAuthentication 1" >> /usr/local/etc/tor/torrc 
 
 ### Run Tor
     $ tor
