@@ -1,27 +1,20 @@
-### [Install Tor](https://www.torproject.org/projects/torbrowser.html.en): 
-  - Linux
-    
-        $ sudo apt install tor
+## How to Run Tor with LND
 
-  - OSX:
+### Install Tor
+  [Linux](https://www.torproject.org/docs/debian.html.en)
+  
+    $ sudo apt install tor
+
+  [OSX](https://www.torproject.org/docs/tor-doc-osx.html.en)
         
-        $ brew install tor
+    $ brew install tor
 
 ### Verify installation
-    
-    $ tor --version
-    Tor version 0.3.5.7.
+  ``` 
+  $ tor --version
+  ```
 
-### Create Tor config
-  Linux: 
-    
-    $ vi /etc/tor/torrc
-
-  OSX: 
-  
-    $ vi /usr/local/etc/tor/torrc
-
-### Update `torrc` configuration file
+### Add Tor Configuration to `torrc`
   ```
   SOCKSPort 9050
   Log notice stdout
@@ -29,38 +22,50 @@
   CookieAuthentication 1
   ```
 
+  Linux: `/etc/tor/torrc`
+
+    $ echo -e "SOCKSPort 9050 \nLog notice stdout \nControlPort 9051 \nCookieAuthentication 1" >> /etc/tor/torrc
+
+  OSX: `/user/local/etc/tor/torrc` 
+
+    $ echo -e "SOCKSPort 9050 \nLog notice stdout \nControlPort 9051 \nCookieAuthentication 1" >> /user/local/etc/tor/torrc 
+
 ### Run Tor
-  ```
-  $ tor
-  Jan 29 10:39:18.561 [notice] Read configuration file "/usr/local/etc/tor/torrc".`
-  ```
+    $ tor
 
-### Run lnd
-  ```
-  $ ./lnd --tor.active --tor.v2 --tor.streamisolation
+### Run lnd 
 
-  2019-01-29 10:28:33.353 [INF] SRVR: Proxying all network traffic via Tor (stream_isolation=true)! NOTE: Ensure the backend node is proxying over Tor as well
+  Enable lnd to connect to Tor
+  - `tor.active` allows lnd to route through Tor
+  - `tor.v3` sets up a v3 onion service
+  - `tor.streamisolation` will create a new circuit for each connection
+  - `listen` to localhost to prevent unintentional leaking of identifying information
+
+  ```
+  $ ./lnd --tor.active --tor.v3 --listen=localhost --tor.streamisolation
   ```
 
   or update your `lnd.conf`
 
   ```
-  listen=127.0.0.1
-  #  Allows lnd to route all outbound and inbound connections through Tor.
   tor.active=true
-  #  Tor can simply be done with either v2 or v3 onion services
   tor.v3=true
-  # Optional: Enable Tor stream isolation by randomizing user credentials for each connection
   tor.streamisolation=true
+  listen=localhost
   ```
-
+  
 ### Verify lnd node info
+  
+  Get your public key
   ```
-  $ ./lnd getinfo | grep identity_pubkey
+  $ lncli getinfo | grep identity_pubkey
 
   "identity_pubkey": "0346095e50ed1f8cf4dbda1fca442cd2ebccf082912e33c1c2e19868f1f56a190a",
+  ```
 
-  $ ./lnd getnodeinfo 0346095e50ed1f8cf4dbda1fca442cd2ebccf082912e33c1c2e19868f1f56a190a
+  Get node information about your public key
+  ```
+  $ lncli getnodeinfo 0346095e50ed1f8cf4dbda1fca442cd2ebccf082912e33c1c2e19868f1f56a190a
 
   {
     "node": {
@@ -80,9 +85,25 @@
   }
   ```
 
-  Connect `03026a1e2f3d19054347d007fd30ff748766fe7150ea61bd42252bb2054d868434@55slzhers64npc4ad47bjv6mx4m5nrho4au2bdbc4sadefwmj22wmyid.onion:9735`
-  
-  ![](https://i.imgur.com/we6yWP8.png)
+  Verify that your `addr` is an `onion` address
 
+  or if you have Zap installed
+
+  ![](/img/01.png)
+
+## How to Connect 
+
+Connecting to an Tor node is the same as connecting to any other node: `publicKey@address:port`
+
+Example:
+```
+lncli openchannel --node_key 0346095e50ed1f8cf4dbda1fca442cd2ebccf082912e33c1c2e19868f1f56a190a --connect b53ztxul4vdcktgcgmvcvgjigi2vq2hy4ah6wg7frqpiiesdoxozx3ad.onion:9735 --local_amt 20000 
+```
+
+or connect manually through Zap
+
+  ![](/img/02.png)
+  ![](/img/03.png)
+  ![](/img/04.png)
 
 ### Reference https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
