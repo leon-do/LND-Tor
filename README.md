@@ -1,6 +1,6 @@
-## How to Run Tor with LND
+# How to Run Tor with LND
 
-### Install Tor
+## Install Tor
   [Linux](https://www.torproject.org/docs/debian.html.en)
   
     $ sudo apt install tor
@@ -9,12 +9,12 @@
         
     $ brew install tor
 
-### Verify installation
+## Verify installation
   ``` 
   $ tor --version
   ```
 
-### Add Tor Configuration to `torrc`
+## Add Tor Configuration to `torrc`
 
   Linux: `/etc/tor/torrc`
 
@@ -27,10 +27,10 @@
   CookieAuthentication 1
   ```
 
-### Run Tor
+## Run Tor
     $ tor
 
-### Run lnd 
+## Run lnd 
 
   Enable lnd to connect to Tor
   - `tor.active` allows lnd to route through Tor
@@ -51,7 +51,7 @@
   listen=localhost
   ```
   
-### Verify lnd node info
+## Verify lnd node info
   
   Get your public key
   ```
@@ -103,4 +103,4 @@ or connect manually through Zap
   ![](/img/03.png)
   ![](/img/04.png)
 
-### Reference https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
+## Reference https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
