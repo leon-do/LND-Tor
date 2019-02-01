@@ -15,16 +15,17 @@
   ```
 
 ### Add Tor Configuration to `torrc`
+
+  Linux: `/etc/tor/torrc`
+
+  OSX: `/usr/local/etc/tor/torrc` 
+  
   ```
   SOCKSPort 9050
   Log notice stdout
   ControlPort 9051
   CookieAuthentication 1
   ```
-
-  Linux: `/etc/tor/torrc`
-
-  OSX: `/usr/local/etc/tor/torrc` 
 
 ### Run Tor
     $ tor
