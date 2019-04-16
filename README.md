@@ -103,4 +103,6 @@ or connect manually through Zap
   ![](/img/03.png)
   ![](/img/04.png)
 
-## Reference https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
+## Reference 
+
+https://github.com/lightningnetwork/lnd/blob/master/docs/configuring_tor.md
